@@ -24,12 +24,8 @@ class ZipAirplane:
         return [cls(**data).asdict() for data in airplane_data]
 
     def asdict(self) -> dict:
-        data = {}
-        original = asdict(self)
-        extra = {
+        values_dict = {
             "fuel_consumption": self.consumption_per_minute,
             "total_fly_minutes": self.total_fly_minutes(),
         }
-        data.update(original)
-        data.update(extra)
-        return data
+        return values_dict
