@@ -25,6 +25,8 @@ class ZipAirplane:
 
     def asdict(self) -> dict:
         values_dict = {
+            "airplane_id": self.pk,
+            "passengers_count": self.passengers_count,
             "fuel_consumption": self.consumption_per_minute,
             "total_fly_minutes": self.total_fly_minutes(),
         }
