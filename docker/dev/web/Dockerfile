@@ -22,12 +22,9 @@ RUN apk update \
     && addgroup -g $GID -S $USER \
 	  && adduser -S $USER -G $USER --disabled-password --uid "$UID"
 
-#RUN apk --update add postgresql-client - какая-то бага
-
-#ENTRYPOINT ["psql"]
 
 COPY ./web/src/requirements  ./requirements
-RUN pip install -r ./requirements/base.txt
+RUN pip install -r ./requirements/requirements.txt
 
 COPY --chown=$USER:$USER ./docker/dev/web/entrypoints /
 COPY --chown=$USER:$USER ./web $APP_HOME

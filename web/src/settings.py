@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,12 +12,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', 1))
+APPEND_SLASH = True
 
 ALLOWED_HOSTS: list = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
-SUPERUSER_EMAIL = os.environ.get('SUPERUSER_EMAIL', 'test@test.com')
-SUPERUSER_PASSWORD = os.environ.get('SUPERUSER_PASSWORD', 'tester26')
-ENABLE_RENDERING = int(os.environ.get('ENABLE_RENDERING', 0))
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,11 +26,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'drf_yasg',
+]
+
 LOCAL_APPS = [
     'main.apps.MainConfig',
 ]
 
-INSTALLED_APPS += LOCAL_APPS
+INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -43,6 +46,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {}
 
 ROOT_URLCONF = 'src.urls'
 
@@ -66,13 +71,13 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 DATABASES = {
     'default': {
-      'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.postgresql'),
-      'NAME': os.environ.get('POSTGRES_DB'),
-      'USER': os.environ.get('POSTGRES_USER'),
-      'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-      'HOST': os.environ.get('POSTGRES_HOST'),
-      'PORT': os.environ.get('POSTGRES_PORT'),
-      'CONN_MAX_AGE': 0,
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
+        'CONN_MAX_AGE': 0,
     },
 }
 

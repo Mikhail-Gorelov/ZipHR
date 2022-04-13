@@ -11,4 +11,7 @@ drf-yasg==1.20.0 # Swagger
 flake8==4.0.1
 
 # Black
-black==21.12b0
+black==22.3.0
+
+# Test coverage
+coverage[toml]==6.3.2

@@ -1,0 +1,36 @@
+[tool.black]
+line-length = 110
+exclude = "migrations"
+skip-string-normalization = true
+
+[tool.coverage.run]
+omit = [
+  "*/migrations/*",
+  "src/settings*",
+  "manage.py",
+  "*/apps.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "^\\s*@(abc.)?abstractmethod",
+  "^\\s*@(typing.)?overload",
+  "^\\s*if (typing.)?TYPE_CHECKING:",
+  "^\\s*if (settings.)?DEBUG:",
+  "pragma: no ?cover",
+  "def __repr__",
+  "def __str__",
+  "if self.debug:",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if __name__ == .__main__.:",
+]
+
+[tool.coverage.xml]
+output = "coverage.xml"
+
+[tool.isort]
+multi_line_output = 3
+skip = "migrations"
+line_length = 110
+include_trailing_comma = true

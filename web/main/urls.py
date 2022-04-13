@@ -1,6 +1,7 @@
-from . import views
-from django.urls import path, include
+from django.urls import path
 
-urlpatterns = [
-    path('', views.ZipAirlinesView.as_view(), name='zip_airlines')
-]
+from . import views
+
+app_name = 'main'
+
+urlpatterns = [path('consumption-check/', views.ZipAirlinesView.as_view(), name='zip_airlines')]
