@@ -1,0 +1,17 @@
+django==3.2.9
+
+# for PostgreSql database
+psycopg2==2.9.1
+
+# for RestAPI
+djangorestframework==3.13.1
+drf-yasg==1.20.0 # Swagger
+
+# For testing
+flake8==4.0.1
+
+# Black
+black==22.3.0
+
+# Test coverage
+coverage[toml]==6.3.2
