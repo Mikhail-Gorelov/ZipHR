@@ -18,7 +18,7 @@
     docker-compose up -d --build
     docker-compose logs -f
     
-##### Server will bind 8000 port. You can get access to server by browser [http://localhost:8008](http://localhost:8008)
+##### Server will bind 8008 port. You can get access to server by browser [http://localhost:8008](http://localhost:8008)
 
 #### To run locally module tests from directory project_name/:
 
